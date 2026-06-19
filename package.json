@@ -1,6 +1,6 @@
 {
   "name": "@particle-academy/fancy-brand-icons",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Brand-icon addendum pack for @particle-academy/react-fancy — curated CC0 brand marks (Simple Icons) layered on top of Lucide via registerIconAddendum, plus a seam for your own app logos. Zero runtime deps; SVG path data inlined.",
   "repository": {
     "type": "git",
