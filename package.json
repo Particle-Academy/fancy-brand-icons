@@ -1,7 +1,7 @@
 {
   "name": "@particle-academy/fancy-brand-icons",
   "version": "0.1.1",
-  "description": "Brand-icon addendum pack for @particle-academy/react-fancy — curated CC0 brand marks (Simple Icons) layered on top of Lucide via registerIconAddendum, plus a seam for your own app logos. Zero runtime deps; SVG path data inlined.",
+  "description": "Brand-icon addendum pack for @particle-academy/react-fancy \u2014 curated CC0 brand marks (Simple Icons) layered on top of Lucide via registerIconAddendum, plus a seam for your own app logos. Zero runtime deps; SVG path data inlined.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Particle-Academy/fancy-brand-icons.git"
@@ -31,7 +31,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "tsc --noEmit",
+    "lint": "tsc --noEmit && eslint .",
     "gen": "tsx scripts/generate.ts",
     "clean": "rm -rf dist",
     "prepublishOnly": "tsup"
@@ -46,12 +46,15 @@
     "@types/node": "^22.19.21",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "eslint": "^10.8.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "simple-icons": "^13.0.0",
     "tsup": "^8.5.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.65.0"
   },
   "publishConfig": {
     "access": "public"
