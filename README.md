@@ -1,5 +1,7 @@
 # @particle-academy/fancy-brand-icons
 
+[![Fancified](art/fancified.svg)](https://particle.academy)
+
 A **brand-icon addendum pack** for [`@particle-academy/react-fancy`](https://github.com/Particle-Academy/react-fancy). It layers ~24 curated brand marks (GitHub, X, Slack, Stripe, React, …) onto the Fancy `<Icon>` system so a bare `<Icon name="github" />` resolves the brand mark **on top of Lucide** — no `set=` query, no manual registration per icon.
 
 - **Zero runtime dependencies.** The SVG path data is vendored from [Simple Icons](https://simpleicons.org) (CC0) and **inlined as string literals** at build time. `simple-icons` is a *dev*-only dependency — nothing from it ships in the bundle.
