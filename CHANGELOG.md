@@ -15,6 +15,34 @@ upgrading.
 
 ## [Unreleased]
 
+## 0.3.0 — 2026-10-20
+
+### Changed
+
+- **BREAKING — the X (Twitter) logo is now `x-twitter`, not `x`.** `x` is
+  Lucide's close icon, and this pack registers as an addendum that react-fancy
+  consults *before* the Lucide fallback. So in any app that called
+  `registerBrandIcons()`, **every close button in the kit drew the X logo** —
+  fancy-app-update's update stack, fancy-artboard's focus overlay, fancy-diff,
+  fancy-slides' inspector, and your own `<Icon name="x" />`. After upgrading,
+  `x` is the close cross again.
+
+  **What you must do:** if you used `<Icon name="x" />` (or `icon="x"`) to mean
+  **the X logo**, change it to `name="x-twitter"`. If you used it to mean
+  *close* — which is what everything in the kit means by it — do nothing; it is
+  fixed. The tree-shakeable `XIcon` component export is **unchanged**, so
+  `import { XIcon } from "@particle-academy/fancy-brand-icons"` keeps working.
+  `brandIconManifest` and `curatedMarks` now list the mark as `x-twitter`; an
+  icon picker that stored `"x"` should map it to `"x-twitter"`.
+
+### Added
+
+- A test that fails the build if a brand name shadows a Lucide icon name without
+  being on an explicit, reviewed list. Six names do, deliberately — `github`,
+  `slack`, `youtube`, `linkedin`, `figma` (Lucide's own stand-ins for the same
+  brands) and `apple` (in Lucide, the fruit). Nothing for you to do; the README
+  now says which names shadow Lucide.
+
 ### Fixed
 
 - **`CHANGELOG.md` is now in the published tarball.** `files` did not whitelist it, so npm never shipped it — and this package puts breaking changes in MINOR releases and tells you in the README to read the entry before taking one. The instruction existed for the author, who has the file, and not for the consumer, who is the only one being instructed. Nothing for you to do; the file simply arrives from this release on.

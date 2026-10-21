@@ -47,14 +47,28 @@ import { GithubIcon } from "@particle-academy/fancy-brand-icons";
 
 | name | name | name | name |
 |---|---|---|---|
-| `github` | `x` | `slack` | `youtube` |
+| `github` | `x-twitter` | `slack` | `youtube` |
 | `stripe` | `discord` | `linkedin` | `google` |
 | `apple` | `npm` | `node` | `react` |
 | `typescript` | `javascript` | `tailwind` | `laravel` |
 | `php` | `vercel` | `cloudflare` | `openai` |
 | `anthropic` | `figma` | `notion` | `gmail` |
 
-`node` → Node.js, `tailwind` → Tailwind CSS, `x` → X (Twitter).
+`node` → Node.js, `tailwind` → Tailwind CSS, `x-twitter` → X (Twitter).
+
+### Names shadow Lucide
+
+The pack is an **addendum**, and addenda are consulted *before* the Lucide
+fallback — so a brand name that is also a Lucide name replaces the Lucide icon
+everywhere in your app, for every component, not just yours. That is why the X
+logo is `x-twitter` and not `x`: `x` is Lucide's close icon, and the kit's close
+buttons use it.
+
+Six names do overlap Lucide, deliberately: `github`, `slack`, `youtube`,
+`linkedin` and `figma` are Lucide's own stand-ins for the same brand, so you get
+the real mark instead. `apple` is the exception worth knowing — in Lucide it is
+the **fruit**; with this pack registered, `<Icon name="apple" />` is the Apple
+logo.
 
 ### Manifest (for icon pickers)
 

@@ -2,7 +2,7 @@
 import type { ComponentType } from "react";
 import type { BrandIconProps } from "./github";
 import { GithubIcon } from "./github";
-import { XIcon } from "./x";
+import { XIcon } from "./x-twitter";
 import { SlackIcon } from "./slack";
 import { YoutubeIcon } from "./youtube";
 import { StripeIcon } from "./stripe";
@@ -27,7 +27,7 @@ import { NotionIcon } from "./notion";
 import { GmailIcon } from "./gmail";
 
 export { GithubIcon } from "./github";
-export { XIcon } from "./x";
+export { XIcon } from "./x-twitter";
 export { SlackIcon } from "./slack";
 export { YoutubeIcon } from "./youtube";
 export { StripeIcon } from "./stripe";
@@ -64,7 +64,7 @@ export interface BrandIconManifestEntry {
 /** Curated marks keyed by the name consumers resolve them under. */
 export const curatedMarks: Record<string, ComponentType<BrandIconProps>> = {
   "github": GithubIcon,
-  "x": XIcon,
+  "x-twitter": XIcon,
   "slack": SlackIcon,
   "youtube": YoutubeIcon,
   "stripe": StripeIcon,
@@ -92,7 +92,7 @@ export const curatedMarks: Record<string, ComponentType<BrandIconProps>> = {
 /** Catalog of every curated mark (for icon pickers, e.g. fancy-cms). */
 export const curatedManifest: BrandIconManifestEntry[] = [
   { name: "github", title: "GitHub", slug: "github" },
-  { name: "x", title: "X", slug: "x" },
+  { name: "x-twitter", title: "X", slug: "x" },
   { name: "slack", title: "Slack", slug: "slack" },
   { name: "youtube", title: "YouTube", slug: "youtube" },
   { name: "stripe", title: "Stripe", slug: "stripe" },

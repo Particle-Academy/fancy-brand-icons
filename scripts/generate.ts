@@ -21,7 +21,11 @@ const MARKS_DIR = join(__dirname, "..", "src", "marks");
 /** key (what the consumer types) -> simple-icons slug (CC0 source). */
 const CURATED: Record<string, string> = {
   github: "github",
-  x: "x",
+  // NOT bare `x`: that is lucide's close icon, and the pack is an addendum
+  // consulted before lucide, so `x` turned every close button in the kit into
+  // the X logo. A key that matches a lucide name replaces it app-wide — see
+  // tests/lucide-collisions.test.tsx before adding one.
+  "x-twitter": "x",
   slack: "slack",
   youtube: "youtube",
   stripe: "stripe",
@@ -70,8 +74,17 @@ function pascal(key: string): string {
     .join("");
 }
 
+/**
+ * Component export names that do not follow the key. `x-twitter` would derive
+ * `XTwitterIcon`; the export has been `XIcon` since 0.1 and renaming the
+ * resolver key is no reason to break a tree-shaken import.
+ */
+const COMPONENT_NAME: Record<string, string> = {
+  "x-twitter": "XIcon",
+};
+
 function componentName(key: string): string {
-  return `${pascal(key)}Icon`;
+  return COMPONENT_NAME[key] ?? `${pascal(key)}Icon`;
 }
 
 function escapePath(d: string): string {
