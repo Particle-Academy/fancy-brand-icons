@@ -10,7 +10,8 @@ top-level README's trademark note) — your own logos are yours to supply.
 ### 1. Register at runtime (no rebuild of this package)
 
 Pass extra marks straight into `registerBrandIcons` — they merge on top of the
-curated set, so `<Icon name="acme" />` resolves your component:
+curated set, so `<Icon name="acme-logo" />` resolves your component. Name it with the
+`-logo` suffix, like every mark in the pack, so it can never shadow a Lucide icon:
 
 ```tsx
 import { registerBrandIcons } from "@particle-academy/fancy-brand-icons";
@@ -21,7 +22,7 @@ const AcmeIcon = ({ className, size = 24 }: { className?: string; size?: number 
   </svg>
 );
 
-registerBrandIcons({ logos: { acme: AcmeIcon } });
+registerBrandIcons({ logos: { "acme-logo": AcmeIcon } });
 ```
 
 ### 2. Drop SVGs here and export them

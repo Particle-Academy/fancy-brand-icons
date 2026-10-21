@@ -30,7 +30,7 @@ export function makeBrandIconSet(
 
 /**
  * The default brand `IconSet` — pass to `registerIconAddendum` (or just call
- * `registerBrandIcons()`). `resolve("github")` returns the GitHub mark.
+ * `registerBrandIcons()`). `resolve("github-logo")` returns the GitHub mark.
  */
 export const brandIconSet: IconSet = makeBrandIconSet(brandMarks);
 

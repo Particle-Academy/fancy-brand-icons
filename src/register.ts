@@ -18,7 +18,7 @@ let registered = false;
 
 /**
  * Register the brand-icon pack as a react-fancy addendum so bare
- * `<Icon name="github" />` resolves the brand mark on top of Lucide (or any
+ * `<Icon name="github-logo" />` resolves the brand mark on top of Lucide (or any
  * swapped base set), with no `set=` needed.
  *
  * Idempotent: calling it again is a no-op *unless* you pass new `logos`, in
@@ -29,7 +29,7 @@ let registered = false;
  * ```ts
  * import { registerBrandIcons } from "@particle-academy/fancy-brand-icons";
  * registerBrandIcons();
- * // …then anywhere: <Icon name="github" />
+ * // …then anywhere: <Icon name="github-logo" />
  * ```
  */
 export function registerBrandIcons(options?: RegisterBrandIconsOptions): void {

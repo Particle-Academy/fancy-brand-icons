@@ -15,6 +15,74 @@ upgrading.
 
 ## [Unreleased]
 
+## 0.4.0 — 2026-10-21
+
+### Changed
+
+- **BREAKING — every brand mark is now registered as `<brand>-logo`.** The pack
+  registers as an addendum that react-fancy consults *before* the Lucide
+  fallback, so any bare brand name that is also a Lucide name replaced the
+  Lucide icon app-wide. 0.3.0 fixed one instance (`x`); `apple` was still
+  turning Lucide's fruit into the Apple logo, and `github`, `slack`, `youtube`,
+  `linkedin` and `figma` were overriding Lucide's own glyphs. With the suffix no
+  brand name can collide with any Lucide name, and a test now fails the build if
+  one does.
+
+  **What you must do:** wherever you used a brand name through `<Icon name="…">`
+  or `icon="…"` **to mean the brand logo**, add the suffix — replace
+  `name="github"` with `name="github-logo"`, `name="x-twitter"` with
+  `name="x-logo"`, and so on, per the table below. The bare names no longer
+  resolve through this pack and are **not** kept as aliases (an alias would
+  bring the collision back).
+
+  - Where the bare name has a Lucide icon (`github`, `slack`, `youtube`,
+    `linkedin`, `figma`, `apple`), an un-updated use now renders **Lucide's
+    glyph** instead of the brand mark — it does not break, it just looks
+    different. If you meant Lucide's glyph (e.g. `apple` for the fruit), **do
+    nothing**: this release fixes it.
+  - Every other old name (`x-twitter`, `stripe`, `discord`, `google`, `npm`,
+    `node`, `react`, `typescript`, `javascript`, `tailwind`, `laravel`, `php`,
+    `vercel`, `cloudflare`, `openai`, `anthropic`, `notion`, `gmail`) has no
+    Lucide equivalent, so an un-updated use renders **nothing**. Search for these
+    first.
+  - **Component exports are unchanged** — `GithubIcon`, `XIcon`, `AppleIcon`, …
+    still import exactly as before, so tree-shaken imports need no change.
+  - `brandIconManifest` and `curatedMarks` now list the suffixed names. An icon
+    picker that stored a bare name should map it to `<name>-logo` (and
+    `x-twitter` to `x-logo`).
+  - Logos you pass via `registerBrandIcons({ logos })` are not renamed or
+    checked; the README now recommends giving them the `-logo` suffix too.
+
+  | old name | new name |
+  |---|---|
+  | `github` | `github-logo` |
+  | `x-twitter` | `x-logo` |
+  | `slack` | `slack-logo` |
+  | `youtube` | `youtube-logo` |
+  | `stripe` | `stripe-logo` |
+  | `discord` | `discord-logo` |
+  | `linkedin` | `linkedin-logo` |
+  | `google` | `google-logo` |
+  | `apple` | `apple-logo` |
+  | `npm` | `npm-logo` |
+  | `node` | `node-logo` |
+  | `react` | `react-logo` |
+  | `typescript` | `typescript-logo` |
+  | `javascript` | `javascript-logo` |
+  | `tailwind` | `tailwind-logo` |
+  | `laravel` | `laravel-logo` |
+  | `php` | `php-logo` |
+  | `vercel` | `vercel-logo` |
+  | `cloudflare` | `cloudflare-logo` |
+  | `openai` | `openai-logo` |
+  | `anthropic` | `anthropic-logo` |
+  | `figma` | `figma-logo` |
+  | `notion` | `notion-logo` |
+  | `gmail` | `gmail-logo` |
+
+  The collision test replaces 0.3.0's reviewed overlap list with a stronger
+  invariant: every brand name ends in `-logo`, and none matches any Lucide name.
+
 ## 0.3.0 — 2026-10-20
 
 ### Changed

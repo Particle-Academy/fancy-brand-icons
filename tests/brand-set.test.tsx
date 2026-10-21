@@ -7,7 +7,7 @@ import { curatedMarks } from "../src/marks";
 
 describe("brand icon set", () => {
     it("resolves a curated mark by its kebab name", () => {
-        expect(brandIconSet.resolve("github")).toBeTypeOf("function");
+        expect(brandIconSet.resolve("github-logo")).toBeTypeOf("function");
     });
 
     it("returns null for an unknown name rather than throwing", () => {
@@ -19,16 +19,16 @@ describe("brand icon set", () => {
 
     it("lets supplied logos win over a curated mark on key collision", () => {
         const mine = () => null;
-        const set = makeBrandIconSet({ ...curatedMarks, github: mine });
+        const set = makeBrandIconSet({ ...curatedMarks, "github-logo": mine });
 
-        expect(set.resolve("github")).toBe(mine);
+        expect(set.resolve("github-logo")).toBe(mine);
     });
 
     it("keeps the default set unpolluted when a custom set is built", () => {
         const mine = () => null;
-        makeBrandIconSet({ ...curatedMarks, github: mine });
+        makeBrandIconSet({ ...curatedMarks, "github-logo": mine });
 
-        expect(brandIconSet.resolve("github")).not.toBe(mine);
+        expect(brandIconSet.resolve("github-logo")).not.toBe(mine);
     });
 });
 
@@ -73,7 +73,7 @@ describe("the marks themselves", () => {
         // Brand marks sit on light and dark surfaces. A hardcoded fill is the
         // usual way a mark disappears in dark mode. currentColor is the fix, and
         // multi-colour brand marks are the deliberate exception.
-        const html = renderToStaticMarkup(createElement(curatedMarks.github!, { size: 16 }));
+        const html = renderToStaticMarkup(createElement(curatedMarks["github-logo"]!, { size: 16 }));
 
         expect(html).toContain("currentColor");
     });
@@ -107,7 +107,7 @@ describe("registerBrandIcons", () => {
         expect(registerIconAddendum).toHaveBeenCalledTimes(2);
         const set = registerIconAddendum.mock.calls[1]![0] as { resolve: (n: string) => unknown };
         expect(set.resolve("acme")).toBeTypeOf("function");
-        expect(set.resolve("github")).toBeTypeOf("function");
+        expect(set.resolve("github-logo")).toBeTypeOf("function");
         vi.doUnmock("@particle-academy/react-fancy");
     });
 });

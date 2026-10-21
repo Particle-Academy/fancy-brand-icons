@@ -3,7 +3,7 @@
  *
  * A brand-icon addendum pack for @particle-academy/react-fancy. Curated CC0
  * brand marks (vendored from Simple Icons, path data inlined — zero runtime
- * deps) registered as an icon addendum so `<Icon name="github" />` resolves
+ * deps) registered as an icon addendum so `<Icon name="github-logo" />` resolves
  * the brand mark on top of Lucide. Plus a seam (`src/logos`) for your own
  * app/corp logos.
  */

@@ -2,7 +2,7 @@
 import type { ComponentType } from "react";
 import type { BrandIconProps } from "./github";
 import { GithubIcon } from "./github";
-import { XIcon } from "./x-twitter";
+import { XIcon } from "./x";
 import { SlackIcon } from "./slack";
 import { YoutubeIcon } from "./youtube";
 import { StripeIcon } from "./stripe";
@@ -27,7 +27,7 @@ import { NotionIcon } from "./notion";
 import { GmailIcon } from "./gmail";
 
 export { GithubIcon } from "./github";
-export { XIcon } from "./x-twitter";
+export { XIcon } from "./x";
 export { SlackIcon } from "./slack";
 export { YoutubeIcon } from "./youtube";
 export { StripeIcon } from "./stripe";
@@ -53,7 +53,7 @@ export { GmailIcon } from "./gmail";
 export type { BrandIconProps } from "./github";
 
 export interface BrandIconManifestEntry {
-  /** Kebab key the consumer types: <Icon name="github" />. */
+  /** Kebab key the consumer types: <Icon name="github-logo" />. Always ends in -logo. */
   name: string;
   /** Human-readable brand title. */
   title: string;
@@ -63,56 +63,56 @@ export interface BrandIconManifestEntry {
 
 /** Curated marks keyed by the name consumers resolve them under. */
 export const curatedMarks: Record<string, ComponentType<BrandIconProps>> = {
-  "github": GithubIcon,
-  "x-twitter": XIcon,
-  "slack": SlackIcon,
-  "youtube": YoutubeIcon,
-  "stripe": StripeIcon,
-  "discord": DiscordIcon,
-  "linkedin": LinkedinIcon,
-  "google": GoogleIcon,
-  "apple": AppleIcon,
-  "npm": NpmIcon,
-  "node": NodeIcon,
-  "react": ReactIcon,
-  "typescript": TypescriptIcon,
-  "javascript": JavascriptIcon,
-  "tailwind": TailwindIcon,
-  "laravel": LaravelIcon,
-  "php": PhpIcon,
-  "vercel": VercelIcon,
-  "cloudflare": CloudflareIcon,
-  "openai": OpenaiIcon,
-  "anthropic": AnthropicIcon,
-  "figma": FigmaIcon,
-  "notion": NotionIcon,
-  "gmail": GmailIcon,
+  "github-logo": GithubIcon,
+  "x-logo": XIcon,
+  "slack-logo": SlackIcon,
+  "youtube-logo": YoutubeIcon,
+  "stripe-logo": StripeIcon,
+  "discord-logo": DiscordIcon,
+  "linkedin-logo": LinkedinIcon,
+  "google-logo": GoogleIcon,
+  "apple-logo": AppleIcon,
+  "npm-logo": NpmIcon,
+  "node-logo": NodeIcon,
+  "react-logo": ReactIcon,
+  "typescript-logo": TypescriptIcon,
+  "javascript-logo": JavascriptIcon,
+  "tailwind-logo": TailwindIcon,
+  "laravel-logo": LaravelIcon,
+  "php-logo": PhpIcon,
+  "vercel-logo": VercelIcon,
+  "cloudflare-logo": CloudflareIcon,
+  "openai-logo": OpenaiIcon,
+  "anthropic-logo": AnthropicIcon,
+  "figma-logo": FigmaIcon,
+  "notion-logo": NotionIcon,
+  "gmail-logo": GmailIcon,
 };
 
 /** Catalog of every curated mark (for icon pickers, e.g. fancy-cms). */
 export const curatedManifest: BrandIconManifestEntry[] = [
-  { name: "github", title: "GitHub", slug: "github" },
-  { name: "x-twitter", title: "X", slug: "x" },
-  { name: "slack", title: "Slack", slug: "slack" },
-  { name: "youtube", title: "YouTube", slug: "youtube" },
-  { name: "stripe", title: "Stripe", slug: "stripe" },
-  { name: "discord", title: "Discord", slug: "discord" },
-  { name: "linkedin", title: "LinkedIn", slug: "linkedin" },
-  { name: "google", title: "Google", slug: "google" },
-  { name: "apple", title: "Apple", slug: "apple" },
-  { name: "npm", title: "npm", slug: "npm" },
-  { name: "node", title: "Node.js", slug: "nodedotjs" },
-  { name: "react", title: "React", slug: "react" },
-  { name: "typescript", title: "TypeScript", slug: "typescript" },
-  { name: "javascript", title: "JavaScript", slug: "javascript" },
-  { name: "tailwind", title: "Tailwind CSS", slug: "tailwindcss" },
-  { name: "laravel", title: "Laravel", slug: "laravel" },
-  { name: "php", title: "PHP", slug: "php" },
-  { name: "vercel", title: "Vercel", slug: "vercel" },
-  { name: "cloudflare", title: "Cloudflare", slug: "cloudflare" },
-  { name: "openai", title: "OpenAI", slug: "openai" },
-  { name: "anthropic", title: "Anthropic", slug: "anthropic" },
-  { name: "figma", title: "Figma", slug: "figma" },
-  { name: "notion", title: "Notion", slug: "notion" },
-  { name: "gmail", title: "Gmail", slug: "gmail" },
+  { name: "github-logo", title: "GitHub", slug: "github" },
+  { name: "x-logo", title: "X", slug: "x" },
+  { name: "slack-logo", title: "Slack", slug: "slack" },
+  { name: "youtube-logo", title: "YouTube", slug: "youtube" },
+  { name: "stripe-logo", title: "Stripe", slug: "stripe" },
+  { name: "discord-logo", title: "Discord", slug: "discord" },
+  { name: "linkedin-logo", title: "LinkedIn", slug: "linkedin" },
+  { name: "google-logo", title: "Google", slug: "google" },
+  { name: "apple-logo", title: "Apple", slug: "apple" },
+  { name: "npm-logo", title: "npm", slug: "npm" },
+  { name: "node-logo", title: "Node.js", slug: "nodedotjs" },
+  { name: "react-logo", title: "React", slug: "react" },
+  { name: "typescript-logo", title: "TypeScript", slug: "typescript" },
+  { name: "javascript-logo", title: "JavaScript", slug: "javascript" },
+  { name: "tailwind-logo", title: "Tailwind CSS", slug: "tailwindcss" },
+  { name: "laravel-logo", title: "Laravel", slug: "laravel" },
+  { name: "php-logo", title: "PHP", slug: "php" },
+  { name: "vercel-logo", title: "Vercel", slug: "vercel" },
+  { name: "cloudflare-logo", title: "Cloudflare", slug: "cloudflare" },
+  { name: "openai-logo", title: "OpenAI", slug: "openai" },
+  { name: "anthropic-logo", title: "Anthropic", slug: "anthropic" },
+  { name: "figma-logo", title: "Figma", slug: "figma" },
+  { name: "notion-logo", title: "Notion", slug: "notion" },
+  { name: "gmail-logo", title: "Gmail", slug: "gmail" },
 ];

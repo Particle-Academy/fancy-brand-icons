@@ -2,7 +2,7 @@
 
 [![Fancified](art/fancified.svg)](https://particle.academy)
 
-A **brand-icon addendum pack** for [`@particle-academy/react-fancy`](https://github.com/Particle-Academy/react-fancy). It layers ~24 curated brand marks (GitHub, X, Slack, Stripe, React, …) onto the Fancy `<Icon>` system so a bare `<Icon name="github" />` resolves the brand mark **on top of Lucide** — no `set=` query, no manual registration per icon.
+A **brand-icon addendum pack** for [`@particle-academy/react-fancy`](https://github.com/Particle-Academy/react-fancy). It layers ~24 curated brand marks (GitHub, X, Slack, Stripe, React, …) onto the Fancy `<Icon>` system so `<Icon name="github-logo" />` resolves the brand mark **on top of Lucide** — no `set=` query, no manual registration per icon.
 
 - **Zero runtime dependencies.** The SVG path data is vendored from [Simple Icons](https://simpleicons.org) (CC0) and **inlined as string literals** at build time. `simple-icons` is a *dev*-only dependency — nothing from it ships in the bundle.
 - **Monochrome** (`fill="currentColor"`) so marks inherit your icon color and sizing.
@@ -28,9 +28,9 @@ import { Icon } from "@particle-academy/react-fancy";
 registerBrandIcons();
 
 // …anywhere in the tree:
-<Icon name="github" />
-<Icon name="stripe" size={32} />
-<Icon name="tailwind" className="text-sky-500" />
+<Icon name="github-logo" />
+<Icon name="stripe-logo" size={32} />
+<Icon name="tailwind-logo" className="text-sky-500" />
 ```
 
 `registerBrandIcons()` is idempotent — call it as many times as you like.
@@ -47,28 +47,34 @@ import { GithubIcon } from "@particle-academy/fancy-brand-icons";
 
 | name | name | name | name |
 |---|---|---|---|
-| `github` | `x-twitter` | `slack` | `youtube` |
-| `stripe` | `discord` | `linkedin` | `google` |
-| `apple` | `npm` | `node` | `react` |
-| `typescript` | `javascript` | `tailwind` | `laravel` |
-| `php` | `vercel` | `cloudflare` | `openai` |
-| `anthropic` | `figma` | `notion` | `gmail` |
+| `github-logo` | `x-logo` | `slack-logo` | `youtube-logo` |
+| `stripe-logo` | `discord-logo` | `linkedin-logo` | `google-logo` |
+| `apple-logo` | `npm-logo` | `node-logo` | `react-logo` |
+| `typescript-logo` | `javascript-logo` | `tailwind-logo` | `laravel-logo` |
+| `php-logo` | `vercel-logo` | `cloudflare-logo` | `openai-logo` |
+| `anthropic-logo` | `figma-logo` | `notion-logo` | `gmail-logo` |
 
-`node` → Node.js, `tailwind` → Tailwind CSS, `x-twitter` → X (Twitter).
+`node-logo` → Node.js, `tailwind-logo` → Tailwind CSS, `x-logo` → X (Twitter).
 
-### Names shadow Lucide
+### Every name ends in `-logo` — so none can shadow Lucide
 
 The pack is an **addendum**, and addenda are consulted *before* the Lucide
-fallback — so a brand name that is also a Lucide name replaces the Lucide icon
-everywhere in your app, for every component, not just yours. That is why the X
-logo is `x-twitter` and not `x`: `x` is Lucide's close icon, and the kit's close
-buttons use it.
+fallback. A brand name that is also a Lucide name therefore replaces the Lucide
+icon everywhere in your app, for every component — not just yours. Before 0.4.0
+the pack registered bare names, and that bit twice: `x` (the X logo) turned
+every close button in the kit into the X logo, and `apple` quietly swapped
+Lucide's fruit for the Apple logo.
 
-Six names do overlap Lucide, deliberately: `github`, `slack`, `youtube`,
-`linkedin` and `figma` are Lucide's own stand-ins for the same brand, so you get
-the real mark instead. `apple` is the exception worth knowing — in Lucide it is
-the **fruit**; with this pack registered, `<Icon name="apple" />` is the Apple
-logo.
+So the rule is structural: **every brand mark is registered as `<brand>-logo`**,
+and nothing else. `github` is Lucide's GitHub glyph; `github-logo` is the brand
+mark from this pack. `apple` is the fruit; `apple-logo` is the logo. `x` is the
+close icon; `x-logo` is X. The bare names are **not** kept as aliases — an alias
+would recreate exactly the collision the suffix removes. A test fails the build
+if any brand name lacks the suffix or matches any Lucide name.
+
+Logos you supply yourself (see below) should follow the same rule.
+
+The component exports keep their names: `GithubIcon`, `XIcon`, `AppleIcon`, …
 
 ### Manifest (for icon pickers)
 
@@ -76,7 +82,7 @@ logo.
 
 ```ts
 import { brandIconManifest } from "@particle-academy/fancy-brand-icons";
-// [{ name: "github", title: "GitHub", slug: "github" }, …]  (24 entries)
+// [{ name: "github-logo", title: "GitHub", slug: "github" }, …]  (24 entries)
 ```
 
 ## Supply your own logos
@@ -90,8 +96,8 @@ const AcmeIcon = ({ className, size = 24 }: { className?: string; size?: number 
   </svg>
 );
 
-registerBrandIcons({ logos: { acme: AcmeIcon } });
-// <Icon name="acme" />
+registerBrandIcons({ logos: { "acme-logo": AcmeIcon } });
+// <Icon name="acme-logo" />
 ```
 
 See [`src/logos/README.md`](./src/logos/README.md) for the vendor-and-export path too.
